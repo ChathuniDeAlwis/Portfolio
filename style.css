@@ -1,0 +1,536 @@
+/* start MAIN_PAGE */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  text-decoration: none;
+}
+a {
+  text-decoration: none; /*text direction within a block-level element*/
+}
+ul {
+  list-style:disc;
+}
+:root { /*define a global variable*/
+  --color-primary: #716ee3;
+  --color-bg: #1b1c42;
+  --color-bg2: #524cf5;
+  --color-white: #ffffff;
+  --color-light: #f5f5f5;
+  --transition: 0.4s ease;
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-light);
+  font-family: "Poppins";
+}
+h1 {
+  font-size: 60px;
+  color: var(--color-white);
+  padding-top: 50px;
+  padding-left: 20px;
+}
+p {
+  font-size: 19px;
+  line-height: 150%;
+  width: 50%;
+  margin-top: 1rem;
+  padding-top: 10px;
+  line-height: 50px;
+  padding-left: 20px;
+}
+.introname{
+  color: #d3643f;
+  font-family: "Oleo Script";
+  font-size: 3.8rem;
+}
+.btn {
+  display: inline-block; /*set a width and height on btn*/
+  width: fit-content; /*sets the width of btn to minimum size needed to fit its content*/
+  padding: 10px 22px;
+  border: 2px solid transparent; /*transparent : making the border invisible*/
+  border-radius: 2rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 15px;
+  transition: var(--transition);
+  margin-left: 30px;
+  margin-top: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+.btn:hover {
+  background: transparent;
+  border-color: var(--color-white);
+}
+.double{
+display: flex;
+flex-direction: row;
+}
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 670px) {
+  .btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+.container {
+  max-width: 1420px;
+  width: 98%;
+  margin: 0 auto;
+  display: flex; 
+  flex-wrap: wrap; /*Specifies that the flexible items will wrap if necessary*/
+}
+h1{
+  padding-top: 160px;
+}
+
+/* start NAVBAR*/
+nav {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 10; /*specifies the stack order of an element*/
+  background-color: #1b1c42;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Add some padding for smaller screens */
+}
+
+/* Logo styles */
+.logo h3 {
+  font-size: 1.6rem;
+  color: var(--color-white);
+  transform: translate(-50%, -50%); /*center an element in both x and y */
+  background: linear-gradient(90deg, #00dbde, #fc00ff); /*gradient goes from left to right*/
+  -webkit-background-clip: text; /*text fill the background gradient*/
+  -webkit-text-fill-color: transparent; /*text appears filled with a gradient*/
+  padding-left: 7rem;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+  .logo h3 {
+    font-size: 1.4rem;
+    padding-left: 7rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  .logo h3 {
+    font-size: 1.2rem;
+    padding-left: 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .logo h3 {
+    font-size: 1rem;
+    padding-left: 55rem;
+  }
+}
+.nav-links {
+  display: flex;
+  flex-direction: column; /* Stack links vertically on smaller screens */
+  align-items: center; /* Center links on smaller screens */
+  gap: 0rem; /* Add some gap between links for better readability on smaller screens */
+  padding-top: 15px;
+  align-items: flex-start;
+}
+.nav-links li {
+  margin: 0; /* Remove margin for list items on smaller screens */
+}
+.nav-links li a {
+  color: var(--color-white);
+  font-size: 16px;
+  transition: var(--transition);
+}
+.nav-links li a:hover {
+  color: var(--color-primary);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 950px) {
+  .nav-links {
+    flex-direction: row; /* Revert to horizontal layout on larger screens */
+    gap: 2rem; /* Adjust gap between links */
+  }
+  .logo h3 {
+    padding-left: 100px; /* Remove left padding for smaller screens */
+  }
+}
+/* end NAVBAR*/
+
+/* start HEADER section*/
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 100vh; /* Set min-height instead of height for responsiveness */
+  overflow: hidden;
+}
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Use a single column for smaller screens */
+  align-items: center;
+  padding: 2.5rem 20px; /* Adjust padding for smaller screens */
+  gap: 2%;
+  position: absolute;
+}
+.header-container::after {
+  width: 27%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 38px;
+  bottom: 0;
+  left: 75%;
+  background: var(--color-bg2);
+  z-index: -1;
+}
+.header-right {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Stack the elements vertically on smaller screens, */
+  text-align: center;
+  width: 100%;
+  margin-top: 5rem; /* Add margin for spacing on smaller screens */
+}
+.hero-image {
+  width: 100%; /* Adjust the width for smaller screens */
+  height: auto; /* Allow height to adjust proportionally */
+  margin-bottom: 2rem; /* Add margin for spacing on smaller screens */
+}
+.circle {
+  width: 250px;
+  height: 250px;
+  background-image: url(./img/mainimg.png);
+  background-repeat: no-repeat;
+  background-size: 250px 250px;
+  border-radius: 50%;
+  box-shadow: 0 0 80px white;
+  position: absolute;
+  top: 30vh;
+  left: 65vw;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.social-link {
+  margin-top: 20px;
+  padding: 20px;
+  margin-left: 11px
+}
+.social-link a {
+  color: white;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+.social-link a:hover {
+  color: var(--color-primary);
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 750px) {
+  .hero-image img{
+    width: 300px;
+    height: 350px;
+  }
+  .menu{
+    flex-direction: column-reverse;
+  }
+  .social-link {
+    position: relative;
+    bottom: auto;
+    justify-content: center;
+    margin-top: 1rem; /* Adjust margin for spacing on smaller screens */
+  }
+  .social-link a {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+  .round{
+    position: absolute;
+    left: 80px;
+  }
+}
+@media screen and(max-width:670px) {
+ .header{
+  width: 100%;
+}
+ .social-link{
+  gap: 2px;
+ }
+ .header{
+  flex-direction: column; /*flexible items are displayed vertically, as a column*/
+ }
+}
+@media screen and(max-width:600px){
+  .round{
+    width: 350px;
+    height: 350px;
+  }
+}
+/* end MAIN_PAGE */
+
+/* start ABOUT_PAGE */
+.about {
+  width: 100%;
+  padding: 40px 20px; /* Adjust padding for smaller screens */
+  background-color: #1b1c42;
+  display: flex;
+  justify-content: center;
+}
+.about-main {
+  max-width: 1130px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.about-img {
+  max-width: 100%; /* Make the image responsive */
+  height: auto;
+  margin-right: 20px; /* Adjust margin for spacing between image and text */
+}
+.about-text {
+  max-width: 550px; /* Limit width on larger screens */
+  text-align: left; /* Align text to the left */
+}
+.about-h2 {
+  color: #ff9977;
+  font-size: 3rem; /* Adjust font size for smaller screens */
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+.about-h5 {
+  color: white;
+  letter-spacing: 1px; /* Adjust letter spacing for better readability */
+  font-size: 1.2rem; /* Adjust font size for smaller screens */
+  margin-bottom: 15px; /* Adjust margin for smaller screens */
+  text-transform: capitalize;
+}
+.about-span {
+  color: white;
+  font-size: 1.2rem; /* Adjust font size for smaller screens */
+}
+.about-p {
+  color: rgba(255, 211, 255, 0.8);
+  letter-spacing: 1.5px;
+  line-height: 2;
+  font-size: 1rem; /* Adjust font size for smaller screens */
+  margin-bottom: 30px; /* Adjust margin for smaller screens */
+  padding: 0px;
+  width: auto;
+}
+/* end ABOUT_PAGE */
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 950px) {
+  .about-main {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: center;
+  }
+  .about-img {
+    margin-right: 0; /* Remove margin for smaller screens */
+    margin-bottom: 20px; /* Add margin between image and text on smaller screens */
+  }
+}
+
+/* start BLOG_PAGE */
+.blog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 70px;
+  border-bottom: 1px black;
+}
+.blog-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.blog-heading span {
+  color: #d3643f;
+  font-weight: 500;
+  padding-top: 7px;
+}
+.blog-heading h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+.blog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.blog-box {
+  width: 350px;
+  height: 650px;
+  background-color: #f2f1f1;
+  border: 1.2px solid #d3643f;
+  margin: 70px;
+}
+.blog-img {
+  width: 100%;
+  height: auto;
+}
+.blog-img img {
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+}
+.blog-text {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  color: rgba(27, 28, 66, 255);
+}
+.blog-text span {
+  color: rgb(249, 104, 208);
+  font-size: 0.9rem;
+}
+.blog-text .blog-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #324957;
+}
+.blog-text .blog-title:hover {
+  color: #d3643f;
+  transition: all ease 0.3s; /*Smooth 0.3s ease transition for all properties.*/
+}
+.blog-text p {
+  color: black;
+  font-size: 1rem;
+  font-style: italic;
+  display: -webkit-box; /*displayed as a block-level box*/
+  -webkit-line-clamp: 3; /*Restricts the content to display in a maximum of 3 lines*/
+  -webkit-box-orient: vertical; /*Sets the box orientation to vertical*/
+  overflow: hidden;
+  text-overflow: ellipsis;/*Render an ellipsis ("...") to represent the overflowed text*/
+  line-height: 25px;/*Sets the height of each line of text to 25px*/
+}
+.blog-text a {
+  color: #544d9a;
+  font-size: 0.9rem;
+}
+.blog-text a:hover {
+  color: #d3643f;
+  transition: all ease 0.3s;
+}
+ /* end BLOG_PAGE */
+
+/* start FORM page */
+.form-main {
+  background: url("img/b.jpg");
+  width: 100%;
+  height: 92%;
+  position: relative;
+  top: 90px;
+}
+.form-h2 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 900; /*sets the thickness or boldness of the text*/
+  font-size: x-large;
+  font-style: italic;
+  padding-bottom: 15px;
+  color: #ff9977;
+}
+.register {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);/*Add shadow with 15px blur,using 30% non-transparent black*/
+  color: #f5f5f5;
+  padding-top: 8px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  margin: 0 auto 0 auto;
+}
+.form-box {
+  display: block; /*starting on a new line and spanning the full width*/
+  margin-left: auto;
+  margin-right: auto;
+}
+label {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-style: italic;
+}
+input#name {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 7px;
+  background-color: rgb(232, 236, 255);
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3); /*inset:Changes shadow from outer to inner*/
+}
+.input#submit {
+  width: 20px;
+  padding: 7px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(250, 100, 0, 0.8);
+  color: #d8d6d6;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+label,
+/* span, */
+form h2 {
+  text-shadow: 1px 1px 5px #1b1c42;
+}
+input#email{
+  background-color: rgb(232, 236, 255);
+  padding: 3px 7px 3px 7px;
+}
+#msg {
+  width: 300px;
+  height: 80px;
+  background-color: rgb(232, 236, 255);
+  border-radius: 3px;
+  padding: 3px 7px 3px 7px;
+}
+#submit {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+#submit:hover {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+@media screen and (max-width: 768px) {
+  .form-h2 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+  .register {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+
+
+
+
